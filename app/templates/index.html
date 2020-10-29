@@ -1,0 +1,36 @@
+<html>
+    <head>
+       <title>{{title}} - Event planner</title>
+    </head>
+    <body>
+        <h1>Event Planner</h1>
+        <form action="/add-event" method="POST">
+            <label for="Date">Date</label>
+            <input type="text" name="date" id="date">
+            <label for="Name of event">Name of event</label>
+            <input type="text" name="name_event" id="name_event" >
+            <label for="Number of guest">No. of guests</label>
+            <input type="text" name="num_guests" id="num_guests" >
+            
+            <label for="Room location">Room Location</label>
+            <input type="text" name="room_location" id="room_location" >
+
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="2"></textarea>
+
+            <input type="submit" value="Add Event">
+        
+        </form>
+        {% for event in events%}
+        <div>
+            
+                <b>Date: </b> {{event.date}} <b>Event name: </b>{{event.name_event}} <b>Number of guests:</b> {{event.num_guests}} <b>Event location:</b> {{event.room_location}} <b>Description:</b>{{event.description}}
+                
+            
+
+        </div>
+        {% endfor %}
+
+    </body>
+
+</html>
