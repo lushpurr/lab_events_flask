@@ -1,0 +1,34 @@
+body {
+    font-family: 'Aclonica', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: crimson;
+    width: 80%;
+    margin: auto;
+}
+
+
+.event-container {
+    display: flex;
+    flex-direction: row;
+    color:white;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    /* background-color: #617073; */
+    background: repeating-linear-gradient(
+  -55deg,
+  #222,
+  #222 10px,
+  #333 10px,
+  #333 20px
+);
+    padding: 10px;
+    margin:20px;
+    border-radius: 25px;
+    border: solid black;
+
+  }

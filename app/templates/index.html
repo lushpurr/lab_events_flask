@@ -1,35 +1,56 @@
 <html>
     <head>
        <title>{{title}} - Event planner</title>
+       <link rel="stylesheet" href="static/css/style.css">
+       <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
     </head>
     <body>
         <h1>Event Planner</h1>
         <form action="/add-event" method="POST">
             <label for="Date">Date</label>
-            <input type="text" name="date" id="date">
+            <input type="date" name="date" id="date">
             <label for="Name of event">Name of event</label>
-            <input type="text" name="name_event" id="name_event" >
+            <input type="text" name="name" id="name">
+            <!-- <input type="checkbox" id="recurring" name="recurring"> -->
+            <!-- <label for="recurring">Recurring</label><br> -->
             <label for="Number of guest">No. of guests</label>
             <input type="text" name="num_guests" id="num_guests" >
-            
+            <br>
             <label for="Room location">Room Location</label>
             <input type="text" name="room_location" id="room_location" >
 
+
             <label for="description">Description</label>
             <textarea name="description" id="description" cols="30" rows="2"></textarea>
+            <input type="submit" value="Add Event"> <!--submit button-->
 
-            <input type="submit" value="Add Event">
+            <!-- <form class="form-inline" action="/clear_all_events" method="POST">
+                <input type="button" value="Clear All Events"> -->
+            <!-- <input type="submit" value="Clear All Events">  -->
         
         </form>
-        {% for event in events%}
-        <div>
-            
-                <b>Date: </b> {{event.date}} <b>Event name: </b>{{event.name_event}} <b>Number of guests:</b> {{event.num_guests}} <b>Event location:</b> {{event.room_location}} <b>Description:</b>{{event.description}}
-                
-            
+        <!--event-container-->
+        <div class="event-container">
+            {% for event in events%}
 
+            <!--event boxes-->
+            <div class="event">
+            
+                <b>Date: </b> {{event.date}}<br>
+                <b>Event name: </b>{{event.name}}<br>
+                <b>Number of guests:</b> {{event.num_guests}}<br>
+                <b>Event location:</b> {{event.room_location}}<br>
+                <b>Description:</b>{{event.description}}
+
+                <!--delete button-->
+                <form class="form-inline" action="/delete/{{ event.name }}" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        
+
 
     </body>
 
